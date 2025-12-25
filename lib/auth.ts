@@ -7,7 +7,7 @@ const SESSION_KEY = "session";
 
 export async function login(email: string, password: string) {
   const user = await prisma.user.findUnique({ where: { email } });
-  if (!user) return null;
+  if (!user || !user.password) return null;
 
   const ok = await bcrypt.compare(password, user.password);
   if (!ok) return null;

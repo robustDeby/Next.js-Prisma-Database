@@ -1,0 +1,37 @@
+import { Task } from '../types';
+
+interface TaskCardProps {
+  task: Task;
+  toggleTaskCompletion: (id: number) => void;
+  deleteTask: (id: number) => void;
+}
+
+export default function TaskCard({
+  task,
+  toggleTaskCompletion,
+  deleteTask,
+}: TaskCardProps) {
+  return (
+    <div className={`card task-card ${task.completed ? 'completed' : ''}`}>
+      <div className="card-body">
+        <h5 className="task-title">{task.title}</h5>
+        <p className="task-description">{task.description}</p>
+        <p className="task-dueDate">Due Date: {task.dueDate}</p>
+        <div className="task-actions">
+          <button
+            className="btn btn-success"
+            onClick={() => toggleTaskCompletion(task.id)}
+          >
+            {task.completed ? 'Mark as Active' : 'Mark as Completed'}
+          </button>
+          <button
+            className="btn btn-danger"
+            onClick={() => deleteTask(task.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

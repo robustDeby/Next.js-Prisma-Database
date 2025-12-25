@@ -13,3 +13,21 @@ model User {
   name  String?
   password String?
 }
+model Task {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  dueDate String?
+  completed Boolean 
+}
+type Frequency {
+  data Int?
+  kind String?
+}
+
+model Habit {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  frequency      Frequency?
+  completedToday Boolean
+}

@@ -1,8 +1,6 @@
 import { prisma } from "@/lib/prisma";
-import { getCurrentUser } from "@/lib/auth";
 import { deleteUser, logoutAction } from "./action";
 import UserForm from "./components/user-form";
-import { redirect } from "next/navigation";
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
