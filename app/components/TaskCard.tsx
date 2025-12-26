@@ -2,15 +2,18 @@ import { Task } from '../types';
 
 interface TaskCardProps {
   task: Task;
-  toggleTaskCompletion: (id: number) => void;
-  deleteTask: (id: number) => void;
+  toggleTaskCompletion: (id: string) => void;
+  deleteTask: (id: string) => void;
+  isPending:boolean
 }
 
 export default function TaskCard({
   task,
   toggleTaskCompletion,
   deleteTask,
+  isPending,
 }: TaskCardProps) {
+  
   return (
     <div className={`card task-card ${task.completed ? 'completed' : ''}`}>
       <div className="card-body">
@@ -21,8 +24,9 @@ export default function TaskCard({
           <button
             className="btn btn-success"
             onClick={() => toggleTaskCompletion(task.id)}
+            disabled={task.completed === true?true:false}
           >
-            {task.completed ? 'Mark as Active' : 'Mark as Completed'}
+            {!task.completed ? 'Mark as Active' : 'Mark as Completed'}
           </button>
           <button
             className="btn btn-danger"

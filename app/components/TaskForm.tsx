@@ -1,50 +1,16 @@
-"use client";
 
-import { useState } from 'react';
-import { Task } from '../types';
+import { createTask } from "../action";
 
-interface TaskFormProps {
-  addTask: (task: Task) => void;
-}
-
-export default function TaskForm({ addTask }: TaskFormProps) {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [dueDate, setDueDate] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!title || !description || !dueDate) {
-      alert("All fields are required!");
-      return;
-    }
-
-    const newTask: Task = {
-      id: Date.now(),
-      title,
-      description,
-      dueDate,
-      completed: false,
-    };
-
-    addTask(newTask);
-
-    setTitle('');
-    setDescription('');
-    setDueDate('');
-  };
+export default function TaskForm() {
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
+    <form action={createTask} className="mb-4">
       <div className="mb-3">
         <label htmlFor="taskTitle" className="form-label">Title</label>
         <input
           type="text"
           className="form-control"
-          id="taskTitle"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          name="taskTitle"
         />
       </div>
 
@@ -52,9 +18,7 @@ export default function TaskForm({ addTask }: TaskFormProps) {
         <label htmlFor="taskDescription" className="form-label">Description</label>
         <textarea
           className="form-control"
-          id="taskDescription"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          name="taskDesc"
         />
       </div>
 
@@ -63,9 +27,7 @@ export default function TaskForm({ addTask }: TaskFormProps) {
         <input
           type="date"
           className="form-control"
-          id="taskDueDate"
-          value={dueDate}
-          onChange={(e) => setDueDate(e.target.value)}
+          name="taskDueDate"
         />
       </div>
 

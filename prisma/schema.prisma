@@ -29,5 +29,5 @@ model Habit {
   id             String @id @default(auto()) @map("_id") @db.ObjectId
   title          String
   frequency      Frequency?
-  completedToday Boolean
+  completed Boolean @default(false)
 }

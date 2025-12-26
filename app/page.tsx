@@ -37,7 +37,7 @@ export default async function Page() {
         <section className="w-100 max-w-md">
 
           <UserForm />
-{/* 
+
           <ul className="list-group mt-4">
             {users.map((u) => (
               <li
@@ -52,7 +52,7 @@ export default async function Page() {
                 </form>
               </li>
             ))}
-          </ul> */}
+          </ul>
         </section>
       </main>
     </div>

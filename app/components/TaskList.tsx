@@ -2,24 +2,27 @@ import TaskCard from './TaskCard';
 import { Task } from '../types';
 
 interface TaskListProps {
-  tasks: Task[];
-  toggleTaskCompletion: (id: number) => void;
-  deleteTask: (id: number) => void;
+  tasks: Task[] | any;
+  toggleTaskCompletion: (id: string) => void;
+  deleteTask: (id: string) => void;
+  isPending:boolean
 }
 
 export default function TaskList({
   tasks,
   toggleTaskCompletion,
   deleteTask,
+  isPending
 }: TaskListProps) {
   return (
     <div id="taskList">
-      {tasks.map((task) => (
+      {tasks?.map((task:Task) => (
         <TaskCard
           key={task.id}
           task={task}
           toggleTaskCompletion={toggleTaskCompletion}
           deleteTask={deleteTask}
+          isPending={isPending}
         />
       ))}
     </div>
