@@ -1,5 +1,4 @@
 import { prisma } from "@/lib/prisma";
-import { deleteUser, logoutAction } from "./action";
 import UserForm from "./components/user-form";
 import './globals.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,11 +22,6 @@ export default async function Page() {
             <a href="/login" className="text-white text-decoration-none">
               Login
             </a>
-            <form action={logoutAction}>
-              <button className="btn btn-link text-white text-decoration-none">
-                Logout
-              </button>
-            </form>
           </div>
         </div>
       </header>
@@ -38,7 +32,7 @@ export default async function Page() {
 
           <UserForm />
 
-          <ul className="list-group mt-4">
+          {/* <ul className="list-group mt-4">
             {users.map((u) => (
               <li
                 key={u.id}
@@ -52,7 +46,7 @@ export default async function Page() {
                 </form>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </section>
       </main>
     </div>

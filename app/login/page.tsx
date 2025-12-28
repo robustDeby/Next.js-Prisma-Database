@@ -16,17 +16,12 @@ export default function LoginPage() {
             <a href="/login" className="text-white text-decoration-none">
               Login
             </a>
-            <form action={logoutAction}>
-              <button className="btn btn-link text-white text-decoration-none">
-                Logout
-              </button>
-            </form>
           </div>
         </div>
       </header>
 
       {/* ================= CONTENT ================= */}
-      <main className="container d-flex justify-content-center align-items-center py-5">
+      <main className="container d-flex justify-content-center align-items-center py-5 main-section">
         <section className="w-100 max-w-md">
               <form action={loginAction} className="space-y-4">
                 <div className="form-group mb-3">

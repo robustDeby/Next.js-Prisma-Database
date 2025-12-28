@@ -4,14 +4,12 @@ interface TaskCardProps {
   task: Task;
   toggleTaskCompletion: (id: string) => void;
   deleteTask: (id: string) => void;
-  isPending:boolean
 }
 
 export default function TaskCard({
   task,
   toggleTaskCompletion,
   deleteTask,
-  isPending,
 }: TaskCardProps) {
   
   return (

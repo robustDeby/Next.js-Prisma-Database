@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma";
-import TaskClient from "../components/TaskClient";
+import TaskClient from "../../components/TaskClient";
 
 export default async function Page() {
   const tasks = await prisma.task.findMany({

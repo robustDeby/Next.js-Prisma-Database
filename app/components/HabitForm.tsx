@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { createTask } from "../action";
+import { createHabit } from "../action";
 
-export default function TaskModal() {
+export default function HabitModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCloseModal = () => setIsModalOpen(false);
@@ -9,19 +9,23 @@ export default function TaskModal() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     const formData = new FormData(e.target as HTMLFormElement); // Convert the form to FormData object
-    
+
     // Pass FormData to createTask
-    createTask(formData).then(() => {
+    createHabit(formData).then(() => {
       handleCloseModal(); // Close the modal after task is created
     });
   };
 
   return (
     <>
-      <button className="btn btn-primary modal-btn" id = "modal-btn" onClick={handleOpenModal}>
-        Add Task  
+      <button
+        className="btn btn-primary modal-btn"
+        id="modal-btn"
+        onClick={handleOpenModal}
+      >
+        Add Habit
       </button>
 
       {isModalOpen && (
@@ -29,58 +33,45 @@ export default function TaskModal() {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Create Task</h5>
+                <h5 className="modal-title">Create Habit</h5>
                 <button
                   type="button"
                   className="close"
                   data-dismiss="modal"
                   aria-label="Close"
                   onClick={handleCloseModal}
-                >
-                </button>
+                ></button>
               </div>
               <div className="modal-body">
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="taskTitle" className="form-label">
-                      Title
+                    <label htmlFor="habitTitle" className="form-label">
+                      Habit
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      name="taskTitle"
+                      name="title"
                       required
                     />
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="taskDescription" className="form-label">
-                      Description
+                    <label htmlFor="habitFrequency" className="form-label">
+                      Frequency
                     </label>
-                    <textarea
+                    <select
                       className="form-control"
-                      name="taskDesc"
-                      required
-                    />
-                  </div>
-
-                  <div className="mb-3">
-                    <label htmlFor="taskDueDate" className="form-label">
-                      Due Date
-                    </label>
-                    <input
-                      type="date"
-                      className="form-control"
-                      name="taskDueDate"
-                      required
-                    />
+                      name="habitFrequency"
+                      defaultValue="DAILY"
+                    >
+                      <option value="DAILY">DAILY</option>
+                      <option value="WEEKLY">WEEKLY</option>
+                    </select>
                   </div>
 
                   <div className="d-flex justify-content-between">
-                    <button
-                      type="submit"
-                      className="btn btn-primary"
-                    >
+                    <button type="submit" className="btn btn-primary">
                       Save
                     </button>
                     <button

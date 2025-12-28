@@ -20,14 +20,14 @@ model Task {
   dueDate String?
   completed Boolean 
 }
-type Frequency {
-  data Int?
-  kind String?
+model Habit {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  frequency Frequency?
+  date      String[] // Array of nullable strings
 }
 
-model Habit {
-  id             String @id @default(auto()) @map("_id") @db.ObjectId
-  title          String
-  frequency      Frequency?
-  completed Boolean @default(false)
+enum Frequency {
+  DAILY
+  WEEKLY
 }

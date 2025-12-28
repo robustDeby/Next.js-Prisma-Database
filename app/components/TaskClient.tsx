@@ -29,9 +29,8 @@ export default function TaskClient({ tasks }: { tasks: Task[] }) {
 
   return (
     <div className="container mt-5">
-      <h2 className="text-center mb-4">Task Manager</h2>
 
-      <div className="d-flex justify-content-start mb-3 filter-buttons">
+      <div id="btn-group">
         <button
           className="btn btn-outline-primary"
           onClick={() => setFilter("all")}

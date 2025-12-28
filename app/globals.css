@@ -27,3 +27,30 @@ body {
 .main-section {
     min-height: 80vh;
 }
+
+#btn-group {
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+#modal-btn {
+      position: absolute;
+    bottom: 2%;
+    right: 15%;
+}
+.completed {
+  border-color: cornflowerblue;
+    border-style: dashed;
+}
+.habit-card {
+      margin-top: 10px;
+    margin-bottom: 10px;
+}
+.habit-frequency {
+    color: #0d7b81;
+    margin-left: 13%;
+    padding-bottom: 18px;
+    font-family: system-ui;
+}
