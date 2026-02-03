@@ -2,7 +2,7 @@
 import { useState, useTransition } from "react";
 import TaskList from "../components/TaskList";
 import TaskForm from "../components/TaskForm";
-import { updateTask,removeTask } from "../action";
+import { updateTask,removeTask } from "../../lib/action/task";
 import {Task} from "../types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../globals.css";
@@ -11,9 +11,9 @@ export default function TaskClient({ tasks }: { tasks: Task[] }) {
 
   const [isPending,startTransition] = useTransition();
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
-  const toggleTaskCompletion = (id: string) => {
+  const toggleTaskCompletion = (id: string, completed:boolean) => {
     startTransition(async() => {
-        await updateTask(id);
+        await updateTask(id, completed);
     })
   }
 
@@ -55,7 +55,6 @@ export default function TaskClient({ tasks }: { tasks: Task[] }) {
         tasks={filteredTasks}
         toggleTaskCompletion={toggleTaskCompletion}
         deleteTask={deleteTask}
-        isPending = {isPending}
       />
 
       <TaskForm />

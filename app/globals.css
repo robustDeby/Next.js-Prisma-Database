@@ -40,9 +40,9 @@ body {
     bottom: 2%;
     right: 15%;
 }
-.completed {
-  border-color: cornflowerblue;
-    border-style: dashed;
+.finish {
+  border-color: cornflowerblue !important;
+    border-style: dashed !important;
 }
 .habit-card {
       margin-top: 10px;

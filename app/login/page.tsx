@@ -1,6 +1,6 @@
 "use client";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { loginAction,logoutAction } from "../action";
+import { loginAction} from "../../lib/action/auth";
 
 export default function LoginPage() {
   return (

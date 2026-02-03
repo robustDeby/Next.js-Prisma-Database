@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createHabit } from "../action";
+import { createHabit } from "../../lib/action/habit";
 
 export default function HabitModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createTask } from "../action";
+import { createTask } from "../../lib/action/task";
 
 export default function TaskModal() {
   const [isModalOpen, setIsModalOpen] = useState(false);

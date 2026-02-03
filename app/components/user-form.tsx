@@ -1,6 +1,6 @@
 "use client";
 
-import { createUser } from "../action";
+import { createUser } from "../../lib/action/auth";
 
 export default function UserForm() {
   return (

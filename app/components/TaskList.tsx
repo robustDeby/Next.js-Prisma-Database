@@ -3,16 +3,14 @@ import { Task } from '../types';
 
 interface TaskListProps {
   tasks: Task[] | any;
-  toggleTaskCompletion: (id: string) => void;
+  toggleTaskCompletion: (id: string, completed:boolean) => void;
   deleteTask: (id: string) => void;
-  isPending:boolean
 }
 
 export default function TaskList({
   tasks,
   toggleTaskCompletion,
   deleteTask,
-  isPending
 }: TaskListProps) {
   return (
     <div id="taskList">
@@ -22,7 +20,6 @@ export default function TaskList({
           task={task}
           toggleTaskCompletion={toggleTaskCompletion}
           deleteTask={deleteTask}
-          isPending={isPending}
         />
       ))}
     </div>

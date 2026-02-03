@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { logoutAction } from "../action";
+import { logoutAction } from "../../lib/action/logoutAction";
 import "../globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
